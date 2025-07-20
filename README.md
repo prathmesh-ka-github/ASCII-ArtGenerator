@@ -57,7 +57,7 @@ Inside the [main.py](https://github.com/prathmesh-ka-github/ASCII-ArtGenerator/b
 ~~~
 image = Image.open("<imagePath.extension>")
 ~~~
-You can input .png, .jpg, .jpeg, .tiff, .svg, .bmp and .webp image formats.
+You can input .png, .jpg, .jpeg, .tiff, .bmp and .webp image formats.
 
 ### 2. Resolution config -
 
