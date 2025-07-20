@@ -14,9 +14,19 @@
                                                                 
 ```               
 
-### A simple, lightweight and blazingly fast ASCII Art Generator that converts images into text-based artwork using ASCII characters. A fun and creative way to visualize images with code!
+### 👩🏻‍💻 A simple, lightweight and blazingly fast ASCII Art Generator that converts images into text-based artwork using ASCII characters. A fun and creative way to visualize images with code!
 
 This is a CLI program. Requires Python and PiP.
+
+## 📦 Libraries 
+
+### [1. Pillow 11.3.0 - Python Imaging Library](https://pillow.readthedocs.io/en/stable/)
+
+The Python Imaging Library adds image processing capabilities to your Python interpreter. This library provides extensive file format support, an efficient internal representation, and fairly powerful image processing capabilities.
+
+The core image library is designed for fast access to data stored in a few basic pixel formats. It should provide a solid foundation for a general image processing tool.
+
+Check python support for Pillow to check compatibility of Pillow with your system. https://pillow.readthedocs.io/en/stable/installation/platform-support.html
 
 ## 📄 Installation Intructions -
 
@@ -25,6 +35,8 @@ Make sure you have -
 - python
 - pip
 - jdk
+
+Follow these instruction to install and run it on your machine!
 
 1. Install all required packages in requirements.txt
 ~~~
@@ -35,17 +47,26 @@ Make sure you have -
 > python main.py
 ~~~ 
 
+![Galaxy](image.png)
+
 ## ⚙ Configuration
+
+### 1. Image config -
+
 Inside the [main.py](https://github.com/prathmesh-ka-github/ASCII-ArtGenerator/blob/main/main.py), edit Image.open() function. It takes the image path as the file parameter in String.
 ~~~
 image = Image.open("<imagePath.extension>")
 ~~~
 You can input .png, .jpg, .jpeg, .tiff, .svg, .bmp and .webp image formats.
 
+### 2. Resolution config -
+
+### 3. ASCII characters config -
+
 ## 📝 License
 This project is licensed under the MIT License.
 
-Checkout [LICENSE.md](https://github.com/prathmesh-ka-github/CommitMoji/blob/main/LICENSE) for more info.
+Checkout [LICENSE.md](https://github.com/prathmesh-ka-github/ASCII-ArtGenerator/blob/main/LICENSE) for more info.
 
 ## 🤝🏻 Contribute
 1. Fork this repository.
@@ -54,10 +75,6 @@ Checkout [LICENSE.md](https://github.com/prathmesh-ka-github/CommitMoji/blob/mai
 1. Submit a pull request.
 
 your code will be reviewed and request will be merged!
-
-### Top contributors - 
-- [abhiishekk02](https://abhiishekk02.github.io/AG.Dev/)
-- [SaisatwikBiku](https://rococo-horse-a3ea9b.netlify.app)
 
 ## 💛 Appreciation
 Give this repo a star! Submit issues if you find bugs! 
