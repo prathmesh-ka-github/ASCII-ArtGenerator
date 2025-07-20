@@ -1,0 +1,37 @@
+from PIL import Image
+#ascii_chars = " .-~+=*#%$@"
+#ascii_chars = " .,'-~:;=+^*>!\)]#&$%@"
+ascii_chars = " .,-~:;=+^*>!\#$&%@"
+#ascii_chars = " .,-~+*#$%@"
+
+width = 100
+
+# image = Image.open("luffy.jpg")
+# image = Image.open("spiderman.png")
+# image = Image.open("eldenring.jpg")
+image = Image.open("galaxy.jpg")
+# image = Image.open("ds.jpg")
+# image = Image.open("dw.jpg")
+# image = Image.open("dww.jpg")
+# image = Image.open("mando.jpg")
+# image = Image.open("deathstar.jpg")
+# image = Image.open("ag.jpg")
+# image = Image.open("ag2.jpg")
+# image = Image.open("ag3.jpg")
+# image = Image.open("ag4.jpg")
+
+print(image.height,image.width)
+height = width * image.height // image.width
+# height = height - 60
+image = image.resize((width,height))
+
+for y in range(height):
+    for x in range(width):
+        r, g, b = image.getpixel((x,y))
+        gray = 0.299 * r + 0.587 * g + 0.114 * b
+        index = int(gray / 256 * len(ascii_chars))
+        print(ascii_chars[index], end="")
+        print(ascii_chars[index], end="")
+    print()
+
+print(image.height,image.width)
