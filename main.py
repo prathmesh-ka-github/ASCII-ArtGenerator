@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageEnhance
 import sys
 import colorama
 from colorama import Fore, Back, init
@@ -7,26 +7,13 @@ from colorist import ColorRGB
 colorama.init(autoreset=True)
 
 image_width=200
-ascii_art_generator ="   _____    _________________ .___.___\n  /  _  \  /   _____\_   ___ \|   |   |\n /  /_\  \ \_____  \/    \  \/|   |   |  \n/    |    \/        \     \___|   |   |  \n\____|__  /_______  /\______  |___|___|  \n        \/        \/        \/                 \n   _____          __    ________                                   __  \n  /  _  \________/  |_ /  _____/  ____   ____   ________________ _/  |_ ___________   \n /  /_\  \_  __ \   __/   \  ____/ __ \ /    \_/ __ \_  __ \__  \\    __/  _ \_  __ \    \n/    |    |  | \/|  | \    \_\  \  ___/|   |  \  ___/|  | \// __ \|  |(  <_> |  | \/  \n\____|__  |__|   |__|  \______  /\___  |___|  /\___  |__|  (____  |__| \____/|__|     \n        \/                    \/     \/     \/     \/           \/                  \nMade with <3 by - https://prathmesh-ka-github.github.io/pratham-c0des./ \n"
 ascii_chars = " .,-~:;=+^*>!\#$&%@"
 
 #ascii_chars = " .-~+=*#%$@"
 #ascii_chars = " .,'-~:;=+^*>!\)]#&$%@"
 #ascii_chars = " .,-~+*#$%@"
 
-# image = Image.open("galaxy.jpg")
-# image = Image.open("luffy.jpg")
-# image = Image.open("spiderman.png")
-# image = Image.open("eldenring.jpg")
-# image = Image.open("ds.jpg")
-# image = Image.open("dww.jpg")
-# image = Image.open("mando.jpg")
-# image = Image.open("deathstar.jpg")
-# image = Image.open("ag2.jpg")
-# image = Image.open("ag3.jpg")
-# image = Image.open("ag4.jpg")
-
-
+ascii_art_generator ="   _____    _________________ .___.___\n  /  _  \  /   _____\_   ___ \|   |   |\n /  /_\  \ \_____  \/    \  \/|   |   |  \n/    |    \/        \     \___|   |   |  \n\____|__  /_______  /\______  |___|___|  \n        \/        \/        \/                 \n   _____          __    ________                                   __  \n  /  _  \________/  |_ /  _____/  ____   ____   ________________ _/  |_ ___________   \n /  /_\  \_  __ \   __/   \  ____/ __ \ /    \_/ __ \_  __ \__  \\    __/  _ \_  __ \    \n/    |    |  | \/|  | \    \_\  \  ___/|   |  \  ___/|  | \// __ \|  |(  <_> |  | \/  \n\____|__  |__|   |__|  \______  /\___  |___|  /\___  |__|  (____  |__| \____/|__|     \n        \/                    \/     \/     \/     \/           \/                  \nMade with <3 by - https://prathmesh-ka-github.github.io/pratham-c0des./ \n"
 
 def save_ascii_image(image_path, output_path, font_path=None, font_size = 30, color = (255,255,255)):
     # variables
@@ -42,7 +29,7 @@ def save_ascii_image(image_path, output_path, font_path=None, font_size = 30, co
     font = ImageFont.truetype("fonts/CourierPrime-Regular.ttf", font_size)
 
     char_width = int(font_size * 0.605)
-    char_height = int(font_size * 0.935)
+    char_height = int(font_size * 0.87)
     img_width = char_width * image_width
     img_height = char_height * height
 
@@ -68,17 +55,12 @@ def save_ascii_image(image_path, output_path, font_path=None, font_size = 30, co
                 font=font,
                 fill=(r, g, b)
             )
-        # text += "\n"
+    enhancer = ImageEnhance.Brightness(img)
+    enhancedimg = enhancer.enhance(2)
+    enhancedimg.save(output_path)
+    # img.save(output_path)
 
-    # lines = text.split("\n")
-    # first_line = lines[0]
-    # width = int(len(first_line) * font_size*0.605)
-    # height = int(len(lines) * font_size*0.935)
-
-    # draw.text((10,10), text, fill=color, font=font)
-    img.save(output_path)
-
-def create_ascii_art(image_path, width=100,ascii_chars=" .,-~:;=+^*>!\#$&%@"):
+def create_ascii_art(image_path, width=100):
     image = Image.open(image_path)
     height = int(width * image.height // image.width *0.5)
     # height = int(width * image.height // image.width *0.9)
@@ -97,10 +79,9 @@ def create_ascii_art(image_path, width=100,ascii_chars=" .,-~:;=+^*>!\#$&%@"):
             color = ColorRGB(r,g,b)
             print(f"{color}{ascii_chars[index]}{color.OFF}", end="")
             print(f"{color}{ascii_chars[index]}{color.OFF}", end="")
-            # print(ascii_chars[index], end="")
         print("\n")
 
-def create_ascii_art_txt(image_path, width=100,ascii_chars=" .,-~:;=+^*>!\#$&%@"):
+def create_ascii_art_txt(image_path, width=100):
     image = Image.open(image_path)
     # height = int(width * image.height // image.width *0.59)
     height = int(width * image.height // image.width *0.9)
@@ -166,5 +147,3 @@ if __name__ == "__main__":
     output_type = sys.argv[2]
 
     save_ascii_art(input_image, output_type)
-
-    # save_ascii_image(input_image,"ascii_image.jpg")
