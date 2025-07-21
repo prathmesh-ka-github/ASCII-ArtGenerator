@@ -1,2 +1,2 @@
 # TODO
-1. Make Img rendering work with colored characters. 
+~~1. Make Img rendering work with colored characters.~~
