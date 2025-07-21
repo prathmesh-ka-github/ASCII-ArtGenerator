@@ -37,21 +37,39 @@ def print_err():
     for cmd in sys.argv:
         usercommand += (cmd + " ")
     print(Fore.RED+ 'python ' + usercommand)
-    print(Fore.RED + "ERROR : Invalid arguments passed. Check Usage format.\n")
+    print(Fore.RED + "ERROR: Invalid arguments passed. Check Usage format.\n")
     print(Fore.GREEN + f"Usage: python {sys.argv[0]} <input_image> <output_type>")
     print("<input_image> - Your input image. [.png, .jpg, .jpeg, .webp, .tiff etc]")
     print("                Check https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html for Image file format support.\n")
     print("<output_type> - Use '-' or 'stdout' to print the output in command line.")
     print("                Use 'txt' to get output in text file. You will get ascii_text.txt")
-    print("                Use 'img' to get output in image file. You will get ascii_image.jpg")
+    print("                Use 'img' to get output in image file. You will get ascii_image.jpg\n")
+    print("For example, try this:")
+    print("> python galaxy.jpg -")
 
 def save_ascii_image(image_path, output_path, font_path=None, font_size = 30, color = (255,255,255)):
+    # variables
     width=200
     ascii_chars=" .,-~:;=+^*>!\#$&%@"
+
+    # Load and resize the image
     image = Image.open(image_path)
-    height = int(width * image.height // image.width *0.7)
     # height = int(width * image.height // image.width)
+    height = int(width * image.height // image.width *0.7)
     image = image.resize((width,height), Image.NEAREST)
+
+    # load fonts
+    font = ImageFont.truetype("fonts/CourierPrime-Regular.ttf", font_size)
+
+    char_width = int(font_size * 0.605)
+    char_height = int(font_size * 0.935)
+    img_width = char_width * width
+    img_height = char_height * height
+
+    # create a blank image
+    img = Image.new('RGB',(img_width,img_height),(0,0,0))
+    draw = ImageDraw.Draw(img)
+
     text = ""
     for y in range(height):
         for x in range(width):
@@ -63,20 +81,21 @@ def save_ascii_image(image_path, output_path, font_path=None, font_size = 30, co
                 r, g, b = image.getpixel((x,y))
             gray = 0.299 * r + 0.587 * g + 0.114 * b
             index = int(gray / 256 * len(ascii_chars))
-            text += ascii_chars[index]
-        text += "\n"
+            # text += ascii_chars[index]
+            draw.text(
+                (x * char_width, y * char_height),
+                ascii_chars[index],
+                font=font,
+                fill=(r, g, b)
+            )
+        # text += "\n"
 
-    lines = text.split("\n")
-    first_line = lines[0]
-    width = int(len(first_line) * font_size*0.605)
-    height = int(len(lines) * font_size*0.935)
-    # create a blank image
-    img = Image.new('RGB',(width,height),(0,0,0))
-    draw = ImageDraw.Draw(img)
-    # load fonts
-    font = ImageFont.truetype("fonts/CourierPrime-Regular.ttf", font_size)
+    # lines = text.split("\n")
+    # first_line = lines[0]
+    # width = int(len(first_line) * font_size*0.605)
+    # height = int(len(lines) * font_size*0.935)
 
-    draw.text((10,10), text, fill=color, font=font)
+    # draw.text((10,10), text, fill=color, font=font)
     img.save(output_path)
 
 def create_ascii_art(image_path, width=100,ascii_chars=" .,-~:;=+^*>!\#$&%@"):
