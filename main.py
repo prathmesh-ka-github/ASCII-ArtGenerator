@@ -6,14 +6,13 @@ from colorist import ColorRGB
 
 colorama.init(autoreset=True)
 
+image_width=200
 ascii_art_generator ="   _____    _________________ .___.___\n  /  _  \  /   _____\_   ___ \|   |   |\n /  /_\  \ \_____  \/    \  \/|   |   |  \n/    |    \/        \     \___|   |   |  \n\____|__  /_______  /\______  |___|___|  \n        \/        \/        \/                 \n   _____          __    ________                                   __  \n  /  _  \________/  |_ /  _____/  ____   ____   ________________ _/  |_ ___________   \n /  /_\  \_  __ \   __/   \  ____/ __ \ /    \_/ __ \_  __ \__  \\    __/  _ \_  __ \    \n/    |    |  | \/|  | \    \_\  \  ___/|   |  \  ___/|  | \// __ \|  |(  <_> |  | \/  \n\____|__  |__|   |__|  \______  /\___  |___|  /\___  |__|  (____  |__| \____/|__|     \n        \/                    \/     \/     \/     \/           \/                  \nMade with <3 by - https://prathmesh-ka-github.github.io/pratham-c0des./ \n"
+ascii_chars = " .,-~:;=+^*>!\#$&%@"
 
 #ascii_chars = " .-~+=*#%$@"
 #ascii_chars = " .,'-~:;=+^*>!\)]#&$%@"
-ascii_chars = " .,-~:;=+^*>!\#$&%@"
 #ascii_chars = " .,-~+*#$%@"
-
-# width = 100
 
 # image = Image.open("galaxy.jpg")
 # image = Image.open("luffy.jpg")
@@ -27,43 +26,24 @@ ascii_chars = " .,-~:;=+^*>!\#$&%@"
 # image = Image.open("ag3.jpg")
 # image = Image.open("ag4.jpg")
 
-# height = height - 60
 
-# Resizing input image
-
-def print_err():
-    print(' ')
-    usercommand = ''
-    for cmd in sys.argv:
-        usercommand += (cmd + " ")
-    print(Fore.RED+ 'python ' + usercommand)
-    print(Fore.RED + "ERROR: Invalid arguments passed. Check Usage format.\n")
-    print(Fore.GREEN + f"Usage: python {sys.argv[0]} <input_image> <output_type>")
-    print("<input_image> - Your input image. [.png, .jpg, .jpeg, .webp, .tiff etc]")
-    print("                Check https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html for Image file format support.\n")
-    print("<output_type> - Use '-' or 'stdout' to print the output in command line.")
-    print("                Use 'txt' to get output in text file. You will get ascii_text.txt")
-    print("                Use 'img' to get output in image file. You will get ascii_image.jpg\n")
-    print("For example, try this:")
-    print("> python galaxy.jpg -")
 
 def save_ascii_image(image_path, output_path, font_path=None, font_size = 30, color = (255,255,255)):
     # variables
-    width=200
     ascii_chars=" .,-~:;=+^*>!\#$&%@"
 
     # Load and resize the image
     image = Image.open(image_path)
     # height = int(width * image.height // image.width)
-    height = int(width * image.height // image.width *0.7)
-    image = image.resize((width,height), Image.NEAREST)
+    height = int(image_width * image.height // image.width *0.7)
+    image = image.resize((image_width,height), Image.NEAREST)
 
     # load fonts
     font = ImageFont.truetype("fonts/CourierPrime-Regular.ttf", font_size)
 
     char_width = int(font_size * 0.605)
     char_height = int(font_size * 0.935)
-    img_width = char_width * width
+    img_width = char_width * image_width
     img_height = char_height * height
 
     # create a blank image
@@ -72,7 +52,7 @@ def save_ascii_image(image_path, output_path, font_path=None, font_size = 30, co
 
     text = ""
     for y in range(height):
-        for x in range(width):
+        for x in range(image_width):
             if image.getpixel((x,y)) == 0:
                 r = g = b = 0
             elif image.getpixel((x,y)) == 1:
@@ -157,6 +137,23 @@ def save_ascii_art(input_image, output_type):
         print(Fore.GREEN + "Done! ASCII Art saved to ascii_image.jpg!")
     else:
         print_err()
+
+
+def print_err():
+    print(' ')
+    usercommand = ''
+    for cmd in sys.argv:
+        usercommand += (cmd + " ")
+    print(Fore.RED+ 'python ' + usercommand)
+    print(Fore.RED + "ERROR: Invalid arguments passed. Check Usage format.\n")
+    print(Fore.GREEN + f"Usage: python {sys.argv[0]} <input_image> <output_type>")
+    print("<input_image> - Your input image. [.png, .jpg, .jpeg, .webp, .tiff etc]")
+    print("                Check https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html for Image file format support.\n")
+    print("<output_type> - Use '-' or 'stdout' to print the output in command line.")
+    print("                Use 'txt' to get output in text file. You will get ascii_text.txt")
+    print("                Use 'img' to get output in image file. You will get ascii_image.jpg\n")
+    print("For example, try this:")
+    print("> python galaxy.jpg -")
 
 if __name__ == "__main__":
     print(" ")
