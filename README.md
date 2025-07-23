@@ -142,5 +142,11 @@ Give this repo a star! Submit issues if you find bugs!
 
 ## Example images -
 ![ascii fire](ascii_fire.jpg)
+
+![vangogh](ascii_eldenring.jpg)
+
 ![mando](ascii_mando.jpg)
-![david](ascii_image.jpg)
+
+![galaxy](ascii_galaxy.jpg)
+
+![vangogh](ascii_vangogh.jpg)
