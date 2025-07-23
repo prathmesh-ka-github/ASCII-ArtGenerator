@@ -55,10 +55,10 @@ def save_ascii_image(image_path, output_path, font_path=None, font_size = 30, co
                 font=font,
                 fill=(r, g, b)
             )
+    # Enhancer
     enhancer = ImageEnhance.Brightness(img)
     enhancedimg = enhancer.enhance(2)
     enhancedimg.save(output_path)
-    # img.save(output_path)
 
 def create_ascii_art(image_path, width=100):
     image = Image.open(image_path)
@@ -103,7 +103,6 @@ def create_ascii_art_txt(image_path, width=100):
     return ascii_image
 
 def save_ascii_art(input_image, output_type):
-
     if output_type == "txt":
         ascii_image = create_ascii_art_txt(input_image)
         with open("ascii_text", "w") as f:
@@ -121,22 +120,14 @@ def save_ascii_art(input_image, output_type):
     else:
         print_err()
 
-
 def print_err():
-    print(' ')
     usercommand = ''
     for cmd in sys.argv:
         usercommand += (cmd + " ")
-    print(Fore.RED+ 'python ' + usercommand)
+    print(Fore.RED+ '> python ' + usercommand)
     print(Fore.RED + "ERROR: Invalid arguments passed. Check Usage format.\n")
     print(Fore.GREEN + f"Usage: python {sys.argv[0]} <input_image> <output_type>")
-    print("<input_image> - Your input image. [.png, .jpg, .jpeg, .webp, .tiff etc]")
-    print("                Check https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html for Image file format support.\n")
-    print("<output_type> - Use '-' or 'stdout' to print the output in command line.")
-    print("                Use 'txt' to get output in text file. You will get ascii_text.txt")
-    print("                Use 'img' to get output in image file. You will get ascii_image.jpg\n")
-    print("For example, try this:")
-    print("> python galaxy.jpg -")
+    print("<input_image> - Your input image. [.png, .jpg, .jpeg, .webp, .tiff etc]\n                Check https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html for Image file format support.\n\n<output_type> - Use '-' or 'stdout' to print the output in command line.\n                Use 'txt' to get output in text file. You will get ascii_text.txt\n                Use 'img' to get output in image file. You will get ascii_image.jpg\n\nFor example, try this:\n> python galaxy.jpg -")
 
 if __name__ == "__main__":
     print(" ")
