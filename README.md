@@ -22,13 +22,13 @@ This is a CLI program. Requires Python and PiP.
 ## Few examples -
 
 [Base Image](https://github.com/prathmesh-ka-github/ASCII-ArtGenerator/blob/main/david2.jpeg) | Original Image from - [Michelangelo: The David](http://www.christheguide.com/2012/04/michelangelo-david.html)
-![david2](ascii_david2.jpg)
+![david2](./ascii_arts/ascii_david2.jpg)
 
 [Base Image](https://github.com/prathmesh-ka-github/ASCII-ArtGenerator/blob/main/david.jpeg) | Original Image from -[Michelangelo's David: Admire World's Greatest Sculpture at Accademia Gallery](https://www.accademia.org/explore-museum/artworks/michelangelos-david/)
-![david](ascii_david.jpg)
+![david](./ascii_arts/ascii_david.jpg)
 
 [Base Image](https://github.com/prathmesh-ka-github/ASCII-ArtGenerator/blob/main/david3.jpeg) | Original Image from - [Michelangelo's David: 7 facts you might not know | Visit Tuscany](https://www.visittuscany.com/en/ideas/michelangelos-david-some-facts-you-might-not-know/)
-![Alt text](ascii_david3.jpg)
+![Alt text](./ascii_arts/ascii_david3.jpg)
 
 ## 📦 Libraries 
 
@@ -141,12 +141,12 @@ your code will be reviewed and request will be merged!
 Give this repo a star! Submit issues if you find bugs! 
 
 ## Example images -
-![ascii fire](ascii_fire.jpg)
+![ascii fire](./ascii_arts/ascii_fire.jpg)
 
-![vangogh](ascii_eldenring.jpg)
+![vangogh](./ascii_arts/ascii_eldenring.jpg)
 
-![mando](ascii_mando.jpg)
+![mando](./ascii_arts/ascii_mando.jpg)
 
-![galaxy](ascii_galaxy.jpg)
+![galaxy](./ascii_arts/ascii_galaxy.jpg)
 
-![vangogh](ascii_vangogh.jpg)
+![vangogh](./ascii_arts/ascii_vangogh.jpg)
