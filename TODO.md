@@ -1,6 +1,8 @@
 # TODO
 1. ~~Make Img rendering work with colored characters.~~
 1. Make a Webapp to convert any img to ascii img.
+1. Use python framework Flask as thhe backend and static HTML CSS JS for frontend.
+1. 
 
 Name suggestion -
 ```
