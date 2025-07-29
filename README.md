@@ -42,7 +42,7 @@ Check python support for Pillow to check compatibility of Pillow with your syste
 
 ## 📄 Installation Intructions -
 
-Make sure you have - 
+Make sure you have latest versions of - 
 - python
 - pip
 
@@ -50,13 +50,27 @@ Make sure you have -
 
 Follow these instruction to install and run it on your machine!
 
+### For Windows -
+
 1. Setup the virtual enviornment ``` > python -m venv .venv```
 
 1. Activate the virtual environment ```> .\.venv\Scripts\activate```
 
 1. Install required packages ```> python pip install -r ./requirements.txt ```
 
+### For linux - 
+
+1. Setup the virtual environment ``` > python -m venv .venv```
+
+1. Activate the virtual environment ``` > source .venv/bin/activate```
+
+1. Install required packages ```> python pip install -r ./requirements.txt ```
+
 That's it! Done!
+
+You can deactivate virtual environment by just simply using - 
+
+``` > deactivate```
 
 NOTE:  Use ```pip3``` or ```python3``` if you have Python3.*
 
@@ -66,7 +80,7 @@ Use the command - ```> python main.py galaxy.jpg stdout``` to run the applicatio
 
 you will get this as the output -
 
-![Galaxy](image.png)
+![Galaxy](ascii_arts/ascii_galaxy.jpg)
 
 ### Command Usage -
 ```> python main.py <input_image> <output_type>```
