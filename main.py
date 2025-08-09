@@ -3,6 +3,7 @@ import sys
 import colorama
 from colorama import Fore
 from colorist import ColorRGB
+from convert import convert_to_rgb
 
 colorama.init(autoreset=True)
 
@@ -22,6 +23,7 @@ def save_ascii_image(image_path, output_path, font_path=None, font_size = 30, co
 
     # Load and resize the image
     image = Image.open(image_path)
+    image = convert_to_rgb(image)
     # height = int(width * image.height // image.width)
     height = int(image_width * image.height // image.width *0.7)
     image = image.resize((image_width,height), Image.NEAREST)
@@ -128,6 +130,11 @@ def print_err():
     print(Fore.RED + "ERROR: Invalid arguments passed. Check Usage format.\n")
     print(Fore.GREEN + f"Usage: python {sys.argv[0]} <input_image> <output_type>")
     print("<input_image> - Your input image. [.png, .jpg, .jpeg, .webp, .tiff etc]\n                Check https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html for Image file format support.\n\n<output_type> - Use '-' or 'stdout' to print the output in command line.\n                Use 'txt' to get output in text file. You will get ascii_text.txt\n                Use 'img' to get output in image file. You will get ascii_image.jpg\n\nFor example, try this:\n> python galaxy.jpg -")
+
+def convert_to_rgb(image): # this expects a PIL Image and returns a new RGB PIL Image
+    new_image = image.convert("RGB")
+    return new_image
+
 
 if __name__ == "__main__":
     print(" ")
