@@ -3,7 +3,6 @@ import sys
 import colorama
 from colorama import Fore
 from colorist import ColorRGB
-from convert import convert_to_rgb
 
 colorama.init(autoreset=True)
 
