@@ -76,7 +76,10 @@ NOTE:  Use ```pip3``` or ```python3``` if you have Python3.*
 
 ## 🏃🏻‍♂️ Running the app
 
-Use the command - ```> python main.py galaxy.jpg stdout``` to run the application and generate a default ascii art.
+Use the command - 
+
+```> python main.py galaxy.jpg stdout``` 
+to run the application and generate an example ascii art! Give it a try!
 
 you will get this as the output -
 
